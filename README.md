@@ -6,7 +6,7 @@ A Spring Boot REST API for managing users and project groups, containerised with
 
 ## Tech Stack
 
-- **Java 17** + **Spring Boot 3.2**
+- **Java 21** + **Spring Boot 3.2**
 - **H2** in-memory database
 - **Docker** (multi-stage build)
 - **Kubernetes** (Docker Desktop)
@@ -39,8 +39,10 @@ user-group-api/
 
 ### Prerequisites
 - Docker Desktop with Kubernetes enabled
-- Java 17+ (for local dev only)
+- Java 21+ (for local dev only)
 - Maven 3.9+ (for local dev only)
+
+### Distroless image - nonroot user
 
 ### Deploy to Kubernetes (one command)
 
@@ -182,7 +184,7 @@ curl -s -X POST http://localhost:8080/api/v1/users \
     "username": "johndoe"
   }' | jq .
 
-# Run load tests
+### Run load tests
 # Standard run (full scenario — ramp 0→10→30→0 VUs over ~3.5 min)
 k6 run load-test.js
 
