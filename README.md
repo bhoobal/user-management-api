@@ -216,6 +216,9 @@ helm rollback user-management-api 5 -n development --dry-run
 # Check history after rollback
 helm history user-management-api -n development
 
+# compare helm releases
+helm history user-management-api
+helm diff revision user-management-api 1 2 -n development
 
 
 
